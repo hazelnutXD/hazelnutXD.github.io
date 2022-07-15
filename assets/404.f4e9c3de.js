@@ -1,0 +1,1 @@
+import{_ as e,o,c as t}from"./app.2222b4ef.js";const c={},s={class:"container"};function r(_,a,n,i,p,f){return o(),t("div",s,"404")}var l=e(c,[["render",r],["__file","404.vue"]]);export{l as default};

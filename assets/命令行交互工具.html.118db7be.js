@@ -1,0 +1,67 @@
+import{_ as n,o as s,c as a,e as t}from"./app.2222b4ef.js";const p={},e=t(`<h2 id="\u7B80\u4ECB" tabindex="-1"><a class="header-anchor" href="#\u7B80\u4ECB" aria-hidden="true">#</a> \u7B80\u4ECB</h2><p>inquirer.js \u662F\u4E00\u4E2A\u901A\u7528\u4EA4\u4E92\u5F0F\u547D\u4EE4\u884C\u7528\u6237\u754C\u9762\u7684\u96C6\u5408\u3002</p><h2 id="\u5B89\u88C5" tabindex="-1"><a class="header-anchor" href="#\u5B89\u88C5" aria-hidden="true">#</a> \u5B89\u88C5</h2><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> inquirer
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="\u4F7F\u7528" tabindex="-1"><a class="header-anchor" href="#\u4F7F\u7528" aria-hidden="true">#</a> \u4F7F\u7528</h2><ol><li><p>\u5BFC\u5165\u6A21\u5757</p><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">const</span> inquirer <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;inquirer&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></li><li><p>\u58F0\u660E\u95EE\u9898</p><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">// \u8F93\u5165\u578B</span>
+<span class="token keyword">let</span> question <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;input&quot;</span><span class="token punctuation">,</span> <span class="token comment">// \u95EE\u9898\u7C7B\u578B</span>
+  <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&quot;\u59D3\u540D&quot;</span><span class="token punctuation">,</span> <span class="token comment">// \u95EE\u9898\u7684\u63CF\u8FF0</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;name&quot;</span><span class="token punctuation">,</span> <span class="token comment">// \u50A8\u5B58\u5F53\u524D\u95EE\u9898\u56DE\u7B54\u7684\u53D8\u91CF</span>
+  <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span> <span class="token comment">// \u63D0\u4F9B\u4E00\u4E2A\u9ED8\u8BA4\u503C</span>
+
+  <span class="token comment">// \u9A8C\u8BC1\u7528\u6237\u8F93\u5165\uFF0C\u5982\u679C\u4E0D\u7B26\u5408\u89C4\u5219\u5219\u91CD\u65B0\u8F93\u5165</span>
+  <span class="token function">validate</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">===</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// \u8BE2\u95EE\u662F\u5426\uFF0C\u8FD4\u56DE\u503C\u4E3A\u5E03\u5C14\u578B</span>
+<span class="token keyword">let</span> question <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;confirm&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&quot;\u662F\u5426\u6BD5\u4E1A&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;isTrue&quot;</span><span class="token punctuation">,</span> <span class="token comment">// true \u6216 false</span>
+  <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">&quot;false&quot;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// \u5355\u9009\u578B</span>
+<span class="token keyword">let</span> question <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;list&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&quot;\u9009\u62E9\u4E00\u6B3E\u524D\u7AEF\u6846\u67B6&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;data&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">choices</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;React&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Vue&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Angular&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// \u591A\u9009\u578B</span>
+<span class="token keyword">let</span> question <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;checkbox&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&quot;\u9009\u62E9\u7231\u597D&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;data&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">choices</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;\u7F16\u7A0B&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;\u97F3\u4E50&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;\u7F8E\u672F&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// \u5BC6\u7801</span>
+<span class="token keyword">let</span> question <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;password&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&quot;\u8F93\u5165\u5BC6\u7801&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;password&quot;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// \u5907\u6CE8</span>
+<span class="token keyword">let</span> question <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;editor&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&quot;\u6DFB\u52A0\u5907\u6CE8&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;editor&quot;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li><li><p>\u6839\u636E\u7528\u6237\u7684\u7B54\u6848\u6267\u884C then \u65B9\u6CD5</p><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code>inquirer
+  <span class="token punctuation">.</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token comment">/* Pass your questions in here */</span>
+  <span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">answers</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Use user feedback for... whatever!!</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li></ol>`,6),o=[e];function l(c,i){return s(),a("div",null,o)}var u=n(p,[["render",l],["__file","\u547D\u4EE4\u884C\u4EA4\u4E92\u5DE5\u5177.html.vue"]]);export{u as default};
